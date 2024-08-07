@@ -14,8 +14,8 @@ class Program
 			Console.WriteLine("Please enter a number:");
 			uint count = GetInput(1, max_value);
 
-            Console.WriteLine();
-            Console.WriteLine(string.Format(format, "Number", "Squared", "Cubed"));
+			Console.WriteLine();
+			Console.WriteLine(string.Format(format, "Number", "Squared", "Cubed"));
 			Console.WriteLine(string.Format(format, "=======", "=======", "======="));
 			for (uint i = 1; i <= count; i++)
 				Console.WriteLine(string.Format(format, i, GetSquared(i), GetCubed(i)));
