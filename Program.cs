@@ -4,14 +4,15 @@ class Program
 {
 	static void Main(string[] args)
 	{
-		const string format = "{0,-7}\t{1,-7}\t{2,-7}";
+		const string format = "{0,7}\t{1,7}\t{2,7}";
+		int max_value = (int)Math.Cbrt(int.MaxValue);
 
 		Console.WriteLine("Learn your squares and cubes!\n");
 
 		do
 		{
 			Console.WriteLine("Please enter a number:");
-			int count = GetInput(0);
+			int count = GetInput(1, max_value);
 
 			Console.WriteLine("\nNumber\tSquared\tCubed");
 			Console.WriteLine("=======\t=======\t=======\n");
@@ -21,12 +22,12 @@ class Program
 		} while (GetContinue("Would you like to continue?"));
 	}
 
-	static int GetInput(int min)
+	static int GetInput(int min, int max)
 	{
 		int result = int.Parse(Console.ReadLine());
-		while (result <= min)
+		while (result < min || result > max)
 		{
-			Console.WriteLine($"Please enter a number greater than {min}");
+			Console.WriteLine($"Please enter a number between {min} and {max}");
 			result = int.Parse(Console.ReadLine());
 		}
 		return result;
